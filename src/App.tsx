@@ -7,9 +7,6 @@ import { ResponseData } from "./types/Types";
 // Styles
 import styled from "@emotion/styled";
 
-// Mock Data
-const MockData = require("./MockData.json");
-
 const Wrapper = styled.div`
   text-align: center;
 
@@ -40,16 +37,14 @@ const App: React.FC = () => {
     undefined
   );
 
-  // const fetchData = async () => {
-  //   const result = await fetch("https://api.covid19api.com/summary");
-  //   const data: ResponseData = await result.json();
-  //   setCovidData(data);
-  //   console.log(data);
-  // };
+  const fetchData = async () => {
+    const result = await fetch("https://api.covid19api.com/summary");
+    const data: ResponseData = await result.json();
+    setCovidData(data);
+  };
 
   useEffect(() => {
-    // fetchData();
-    setCovidData(MockData);
+    fetchData();
   }, []);
 
   return (
